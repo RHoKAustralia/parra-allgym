@@ -23,10 +23,13 @@ function profile(){
         $('#name').append(data.title[0].value);
         $('#image').append('<img src="'+  data.field_image[0].url + '" alt="AllGYM" style="display: block; transform: translate3d(-50%, 169px, 0px);">');
         $('#story').append(data.body[0].value);
-        $('#help_info').append(data.field_ask[0].value);
-        $('#verified_by').append(data.title[0].value);
-        $('.donate_button').append('<a href="' + data.field_donate_url[0].uri + '" class="btn-large waves-effect waves-light orange darken-1">Donate</a>');
+        $('#specialty').append("<ul>");
+        $.each(data.field_specialty, function(i, item) {
 
+                var li = "<li>" + item + "</li>";
+                $('#speciality').append(li);
+        });
+        $('#specialty').append("</ul>");
 
     });
 }
